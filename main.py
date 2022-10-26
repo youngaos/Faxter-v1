@@ -22,7 +22,7 @@ bot.remove_command('help')
 
 @bot.event
 async def on_ready():
-    print("Online")
+    print("LOGGED IN THE BOT. Mady by: AOS")
     myLoop.start()
     await bot.change_presence(activity=discord.Game(name="V1.3 | .help"))
 
@@ -159,4 +159,4 @@ async def myLoop():
 
 
 
-bot.run("token")
+bot.run("token de tu bot ")

@@ -147,7 +147,7 @@ async def croles(ctx):
 
 
 
-@tasks.loop(seconds=3600) # repeat after every 10 seconds
+@tasks.loop(seconds=3600) 
 async def myLoop():
  for guild in bot.guilds:
         try:
